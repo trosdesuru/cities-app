@@ -4,7 +4,7 @@ Cities is an application designed to explore, create, and manage events within d
 The primary objective is to connect users to events and provide tools for users to search for, 
 create, and modify events by location and other key details.
 
-![Cities Image](../app/public/logo/cities.png)
+![Cities Image](../../app/public/logo/cities.png)
 
 ## Functional
 
