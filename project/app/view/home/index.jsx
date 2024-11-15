@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/next'
 import { mockDB } from 'com'
 
 import Header from './Header'
@@ -102,6 +103,7 @@ export default function Home({ onLogout }) {
             </main>
 
             <Footer onHomeClick={handleHomeClick} onMapClicked={handleMapClick} onCalendarClicked={handleCalendarClick} onGoingEventsClicked={handleGoingClick} onFavsEventsClicked={handleFavsClick} />
+            <Analytics />
         </>
     )
 }
