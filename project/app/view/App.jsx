@@ -1,6 +1,6 @@
-import { Analytics } from '@vercel/analytics/next'
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/next'
 
 import logic from '../logic'
 import Login from './login'
@@ -20,6 +20,13 @@ const App = () => {
 
     const navigate = useNavigate()
 
+    const trackClickEvent = (eventName) => {
+        if (typeof wondow !== 'undefined' && window.analytics) {
+            window.analytics.track(eventName)
+            console.debug(`Tracked event: ${eventName}`)
+        }
+    }
+
     useEffect(() => {
         document.documentElement.className = theme
         localStorage.theme = theme
@@ -27,26 +34,31 @@ const App = () => {
 
     const handleLogin = () => {
         // console.debug('App -> handleLogin')
+        trackClickEvent('login clicked')
         navigate('/')
     }
 
     const handleRegisterClick = () => {
         // console.debug('App -> handleRegisterClick')
+        trackClickEvent('register clicked')
         navigate('/register')
     }
 
     const handleRegister = () => {
         // console.debug('App -> handleRegister')
+        trackClickEvent('registration completed')
         navigate('/login')
     }
 
     const handleLoginClick = () => {
         // console.debug('App -> handleLoginClick')
+        trackClickEvent('login page opened')
         navigate('/login')
     }
 
     const handleLogout = () => {
         // console.debug('App -> handleLogout')
+        trackClickEvent('logout clicked')
         navigate('/login')
     }
 
