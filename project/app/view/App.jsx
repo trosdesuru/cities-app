@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next'
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
@@ -60,6 +61,7 @@ const App = () => {
             </Routes>
 
             {alertMessage && <Alert message={alertMessage} onAccept={handleAlertAccept} />}
+            <Analytics />
         </Context.Provider>
     )
 }
