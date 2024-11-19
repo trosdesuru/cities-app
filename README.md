@@ -2,7 +2,7 @@
 
 Resume is a project designed as an online portfolio and resume, with a user interface inspired by Visual Studio Code. The goal is to showcase your work experience, technical skills, and featured projects in an interactive and visually appealing way.
 
-![Resume Image](./img/resume_design_screenshot.png)
+![Resume Image](./project/public/img/design.png)
 
 ## Features
 
