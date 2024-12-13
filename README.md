@@ -86,4 +86,4 @@ Event
 
 ### Test Coverage
 
-![Test Coverage](../app/public/test/test-coverage.png)
+![Test Coverage](project/app/public/test/test-coverage.png)
