@@ -33,30 +33,35 @@ const App = () => {
 
     const handleLogin = () => {
         // console.debug('App -> handleLogin')
+        
         trackClickEvent('login clicked')
         navigate('/')
     }
 
     const handleRegisterClick = () => {
         // console.debug('App -> handleRegisterClick')
+
         trackClickEvent('register clicked')
         navigate('/register')
     }
 
     const handleRegister = () => {
         // console.debug('App -> handleRegister')
+
         trackClickEvent('registration completed')
         navigate('/login')
     }
 
     const handleLoginClick = () => {
         // console.debug('App -> handleLoginClick')
+
         trackClickEvent('login page opened')
         navigate('/login')
     }
 
     const handleLogout = () => {
         // console.debug('App -> handleLogout')
+        
         trackClickEvent('logout clicked')
         navigate('/login')
     }
