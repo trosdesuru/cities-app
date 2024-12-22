@@ -20,8 +20,9 @@ const App = () => {
     const navigate = useNavigate()
 
     const trackClickEvent = (eventName) => {
-        if (typeof wondow !== 'undefined' && window.analytics) {
+        if (typeof window !== 'undefined' && window.analytics) {
             window.analytics.track(eventName)
+            
             console.debug(`Tracked event: ${eventName}`)
         }
     }
