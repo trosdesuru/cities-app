@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+
 import useContext from '../context.js'
 import logic from '../../logic'
+
 import 'leaflet/dist/leaflet.css'
-import EventCard from './EventCard'
 import MarkerIcon from '../library/MarkerIcon'
+import EventCard from './EventCard'
+
 
 export default function Map() {
   // console.debug('Map -> call')

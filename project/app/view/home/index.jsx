@@ -79,7 +79,9 @@ export default function Home({ onLogout }) {
 
             <main className="flex flex-col gap-4 pt-4 mt-16 mr-0 min-h-screen max-w-screen overflow-auto bg-white dark:bg-background_grey">
                 {loading ? (
-                    <SkeletonLoader />) : (<Routes>
+                    <SkeletonLoader />
+                ) : (
+                    <Routes>
                         <Route path="/" element={
                             <>
                                 <Carousel onEventGoingToggled={setRefreshStamp} onEventFavToggled={setRefreshStamp} />
