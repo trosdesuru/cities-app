@@ -1,3 +1,4 @@
+![Cities Image](project/app/public/logo/cities.png)
 # Onboarding Page
 
 ## Descripción
