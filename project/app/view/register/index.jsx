@@ -29,7 +29,7 @@ export default function Register({ onRegister, onLoginClick }) {
         const roleInput = Form['role-Input']
         const emailInput = Form['email-Input']
         const usernameInput = Form['username-Input']
-        // const avatarInput = Form['avatar-Input']
+        // const avatarInput = Form['avatar-Input'] TODO add avatar image
         const passwordInput = Form['password-Input']
         const passwordRepeatInput = Form['password-repeat-Input']
 
@@ -38,7 +38,7 @@ export default function Register({ onRegister, onLoginClick }) {
         const role = roleInput.value
         const email = emailInput.value
         const username = usernameInput.value
-        // const avatar = avatar.value
+        // const avatar = avatar.value TODO add avatar image
         const password = passwordInput.value
         const passwordRepeat = passwordRepeatInput.value
 

@@ -1,89 +1,49 @@
-# Cities
+![Cities Image](project/app/public/logo/cities.png)
+# Migración a MongoDB Atlas
 
-Cities is an application designed to explore, create, and manage events within different cities. 
-The primary objective is to connect users to events and provide tools for users to search for, 
-create, and modify events by location and other key details.
+## Descripción
+Esta rama tiene como objetivo migrar la base de datos que actualmente está en local a **MongoDB Atlas**, un servicio de base de datos en la nube. Esto permitirá mejorar la escalabilidad, el rendimiento y la fiabilidad del sistema.
 
-![Cities Image](./project/app/public/logo/cities.png)
+## Fases del proceso
 
-## Functional
+### 1. **Configuración de MongoDB Atlas**
+   - Crear una cuenta en [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+   - Configurar un nuevo clúster de MongoDB Atlas.
+   - Configurar las reglas de acceso IP y crear un usuario con privilegios adecuados.
 
-The application offers a platform for users to interact, explore cities, and stay informed about city-based events through:
+### 2. **Migración de datos desde la base de datos local**
+   - Exportar la base de datos local a un archivo `dump` usando `mongodump`.
+   - Subir el archivo de volcado a MongoDB Atlas utilizando `mongorestore` o la herramienta de importación de Atlas.
 
-- A main section where users can create, modify, and delete their own events.
-- An interactive map or list to display events by location.
-- A search tool to find events by title, or description.
+### 3. **Configuración de la conexión a MongoDB Atlas en la aplicación**
+   - Actualizar las variables de entorno para que apunten a la nueva base de datos en MongoDB Atlas.
+   - Cambiar la cadena de conexión a la base de datos en el código de la aplicación.
+   - Verificar que la conexión se realiza correctamente.
 
-### Use Cases
+### 4. **Verificación y pruebas**
+   - Probar la conexión a la base de datos desde la aplicación.
+   - Realizar pruebas de lectura/escritura en la base de datos para asegurarse de que los datos se almacenan y recuperan correctamente.
+   - Verificar el rendimiento en diferentes entornos (desarrollo, staging, producción).
 
-User
-- Create event
-- Create a review
-- List events by location
-- Search events by title, or caption
-- Modify own event
-- Delete own event
-- Explore cities and view events
-- Explore events by date
+### 5. **Documentación y limpieza**
+   - Actualizar la documentación para reflejar el cambio a MongoDB Atlas.
+   - Eliminar cualquier dato sensible de la base de datos local y asegurar que la nueva configuración esté segura.
 
-### UX | UI Design
-[Figma](https://www.figma.com/proto/2Jqh5rduEoNJAEK8olefch/ISDI-Project-%7C-cities?page-id=47%3A270&node-id=83-33&node-type=canvas&viewport=-303%2C877%2C0.39&t=5vC2tVC4q8nyme1o-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=83%3A33)
+## Pruebas
+- **Prueba de conexión**: Verificar que la aplicación se conecta correctamente a MongoDB Atlas.
+- **Prueba de lectura/escritura**: Realizar operaciones CRUD para asegurarse de que los datos se guardan y recuperan correctamente de la nueva base de datos.
+- **Pruebas de rendimiento**: Verificar el tiempo de respuesta de la base de datos en diferentes operaciones.
+- **Pruebas de escalabilidad**: Simular el uso a gran escala para verificar el rendimiento del clúster de MongoDB Atlas.
 
-## Technical
+## Notas Importantes
+- **Seguridad**: Asegurarse que las credenciales de acceso a MongoDB Atlas estén configuradas correctamente en las variables de entorno y nunca se suban a repositorios públicos.
+- **Migración de datos**: Verificar que todos los datos locales se hayan migrado correctamente antes de cambiar la conexión a producción.
+- **Fase BETA**: Como parte del proceso de migración, es recomendable hacer pruebas exhaustivas en un entorno de staging antes de realizar el cambio en producción.
+- **Monitoreo**: Después de la migración, es recomendable habilitar el monitoreo en MongoDB Atlas para detectar posibles problemas de rendimiento.
 
-### Blocks
-
-- App (user interface)
-- API (core logic)
-- DB (data storage)
-
-### Packages
-
-- api (server)
-- cor (core logic dependency to api)
-- com (common dependencies to api and app)
-- app (client)
-- doc (project documentation)
-
-### Data Model
-
-User 
-- id (auto mongoose generate)
-- name (string)
-- surname (string)
-- email (string)
-- password (string)
-- avatar (string, optional)
-- fav ([Event.id])
-- going ([Event.id])
-
-Event
-- id (auto mongoose generate)
-- author (User.id)
-- title (string)
-- image (string, optional)
-- caption (string)
-- location ([Number, Number])
-- Date (Date)
-- Time (hh:mm)
-- Reviews ( [{ author: User.id, rating: (number), comment: (string) }] )
-- going ([User.id])
-
-### Technologies
-
-- HTML / CSS / JS
-- React
-- TailwindCSS
-- Node
-- Vite
-- Express
-- Chai
-- Mocha
-- bcryptjs
-- MongoDB
-- Mongoose
-- JWT
-
-### Test Coverage
-
-![Test Coverage](../app/public/test/test-coverage.png)
+## Estado del desarrollo
+- [ ] Configuración de MongoDB Atlas completada.
+- [ ] Migración de datos realizada.
+- [ ] Conexión a MongoDB Atlas configurada en la aplicación.
+- [ ] Pruebas de conexión y CRUD realizadas con éxito.
+- [ ] Documentación actualizada.
