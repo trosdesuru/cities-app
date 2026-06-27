@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 
 import logic from '../logic'
 import Login from './login'
@@ -78,6 +79,7 @@ const App = () => {
             </Routes>
 
             {alertMessage && <Alert message={alertMessage} onAccept={handleAlertAccept} />}
+            <Analytics />
         </Context.Provider>
     )
 }
